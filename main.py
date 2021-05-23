@@ -1,5 +1,13 @@
 import tkinter as tk
 from tkinter.constants import LEFT
+from tkinter import messagebox
+
+
+def fnMessage(msg):
+    messagebox.showinfo("Message",msg)
+
+
+
 tkWin=tk.Tk()
 tkWin.title="New phthon Win"
 
@@ -21,6 +29,13 @@ tkLabel2=tk.Label(text="Longer Label2",justify=LEFT)
 tkLabel2.grid(column=0,row=1,ipadx=5, pady=10, sticky=tk.E+tk.N)
 tkField2=tk.Text(width=60,height=1)
 tkField2.grid(column=1,row=1, ipadx=5, pady=5, sticky=tk.W)
+
+#Button
+# lambda function calls fnMessage and passes the content of tkField1
+# Get function gets the text range 1.0 = first character to end last character
+# uses messagebox in tkinter to display value in popup
+tkBtnMessage=tk.Button(tkWin,text="Message",command=lambda: fnMessage(tkField1.get("1.0","end")))
+tkBtnMessage.grid(column=0, row=2)
 
 # start the window
 tkWin.mainloop()
